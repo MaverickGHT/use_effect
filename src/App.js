@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import ButtonUtente from "./ButtonUtente";
 
 function App() {
-
-const [content, setContent]= useState('p');
+const [data, setData] = useState([]);
 const str=["users","posts", "photos"];
 
-const [data, setData] = useState([]);
+const [content, setContent]= useState(str[0]);
+
 
 useEffect (() => {fetch('https://jsonplaceholder.typicode.com/' + content)
 .then((response) => response.json())
@@ -28,7 +28,7 @@ console.log("componente caricata");
     <div>Stiamo vedendo {content}</div>
 
 
-    <pre>{data.map( (elemento) => <pre>{JSON.stringify(elemento)}</pre> )}</pre>
+    {data.map( (elemento) => <pre>{JSON.stringify(elemento)}</pre> )}
     </div>
   );
 }
